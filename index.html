@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arielle Cowham — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Shrikhand&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nav:#141414; --p1:#4B3266; --p2:#7A4E9A; --cream:#F6EBDD; --sand:#E9D3AA; --lilac:#B08BC0; --text:#F6F0F8;
+  --disp:"Shrikhand","Cooper Black",Georgia,serif; --body:"Poppins",system-ui,sans-serif;
+  color-scheme:dark; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;background:var(--nav);scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--p1);color:var(--text);font:400 1rem/1.7 var(--body);overflow-x:hidden}
+.wrap{width:min(80rem,100% - 3rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sand);outline-offset:4px;border-radius:10px}
+.sp{width:1em;height:1em;fill:currentColor;flex:none}
+.grad{background:linear-gradient(180deg,var(--p1),var(--p2))}
+.ph{background:#ffffff22;border-radius:8px;padding:.05rem .45rem;font-style:italic}
+.h{font-size:clamp(2rem,5vw,3.2rem);color:var(--sand);margin-bottom:2rem}
+.btn{display:inline-block;border:2px solid var(--sand);border-radius:999px;padding:.45rem 1.4rem;text-decoration:none;font-weight:500;color:var(--sand)}
+.btn:hover{background:var(--sand);color:var(--nav)}
+
+.nav{background:var(--nav);padding:.85rem 0}
+.nav .wrap{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:2.25rem}
+.nav ul{display:flex;align-items:center;gap:1.5rem;list-style:none;margin:0;padding:0;font-size:.95rem}
+.nav a{text-decoration:none}
+.nav ul a:not(.pill):hover{text-decoration:underline;text-underline-offset:5px}
+.pill{background:var(--lilac);color:#2A1840;padding:.2rem 1.1rem;border-radius:999px;font-weight:500}
+.mono{font-family:var(--disp);font-size:1.8rem;line-height:1;color:#fff;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.li{justify-self:end;display:grid;place-items:center;width:2.25rem;height:2.25rem;color:#fff}
+.li:hover{color:#fff;opacity:.75}
+.li svg{width:1.4rem;height:1.4rem;fill:currentColor}
+
+.hero{position:relative;overflow:hidden;min-height:clamp(28rem,50vw,50rem);padding:clamp(2.5rem,6vw,5rem) 0 4rem}
+.echo{display:inline-block;margin:0;font-size:clamp(3.4rem,11.8vw,11rem);line-height:1;color:var(--cream)}
+.echo span{display:block;white-space:nowrap}
+.echo .o{color:transparent;-webkit-text-stroke:1.5px var(--lilac)}
+.echo .o:nth-child(2){margin-left:.65em}
+.echo .o:nth-child(3){margin-left:1.2em}
+.tagline{margin:2.5rem 0 0 min(18%,14rem);max-width:30rem;font-size:1.05rem}
+.echo,.tagline{animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+.tagline{animation-delay:.2s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+.star{position:absolute;color:var(--sand);animation:tw 6s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes tw{50%{transform:scale(.72) rotate(20deg)}}
+
+.about{padding:clamp(3rem,7vw,6rem) 0}
+.about .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+.about h2{font-size:clamp(2.2rem,5.5vw,4rem);color:var(--sand);margin-bottom:1.5rem}
+.about p{max-width:30rem;margin:0 0 1.1rem}
+.arch{justify-self:center;width:min(100%,19rem);border:3px solid var(--sand);border-radius:2rem;padding:.7rem}
+.arch .in{aspect-ratio:3/4;border-radius:1.4rem;overflow:hidden;background:var(--lilac);color:#2A1840;display:grid;place-items:center;text-align:center;padding:1.5rem;font-size:.9rem}
+.arch img{width:100%;height:100%;object-fit:cover;display:block}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2.5rem}
+.card{text-decoration:none;display:block}
+.card .arch{width:100%}
+.card .in{aspect-ratio:3/2}
+.arch.top{border-radius:999px 999px 0 0}
+.arch.top .in{border-radius:999px 999px 0 0}
+.card h3{font-size:1.8rem;color:var(--sand);margin:1.25rem 0 .4rem}
+.card p{margin:0;font-size:.95rem}
+.card .arch{transition:box-shadow .3s ease}
+.card:hover .arch,.card:focus-visible .arch{box-shadow:0 0 0 5px var(--sand)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:3rem}
+.cols h3{font-size:1.5rem;color:var(--cream);margin-bottom:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.7rem}
+.chip{border:1.5px solid var(--sand);border-radius:999px;padding:.25rem 1.1rem;font-size:.95rem}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:1.5rem}
+.tl li{display:grid;grid-template-columns:1.8rem 1fr;gap:1rem;align-items:start}
+.tl .sp{font-size:1.6rem;color:var(--sand);margin-top:.15rem}
+.tl b{display:block;color:var(--sand);font-weight:600}
+
+.case{padding:2.5rem 0 5rem}
+.back{display:inline-flex;align-items:center;gap:.5rem;color:var(--sand);text-decoration:none}
+.back:hover{text-decoration:underline;text-underline-offset:5px}
+.case h1{font-size:clamp(2.6rem,8vw,6rem);color:var(--cream);margin:2rem 0 1rem}
+.lede{font-size:1.2rem;max-width:38rem;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:1rem 3rem;margin:2rem 0 0}
+.meta dt{color:var(--sand);font-weight:600;font-size:.9rem}
+.meta dd{margin:0}
+.shot{width:100%;aspect-ratio:16/9;border:3px solid var(--sand);border-radius:1.5rem;overflow:hidden;display:grid;place-items:center;text-align:center;padding:1rem;background:#ffffff14;margin:2.5rem 0}
+.shot img,.shot video,.shot iframe{width:100%;height:100%;object-fit:cover;border:0;display:block}
+.story h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--sand);margin:4rem 0 1rem}
+.story p{max-width:40rem;margin:0}
+.next{margin-top:4rem}
+
+.panel,.foot{--sk:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12C11.2 17.8 6.2 12.8 0 12 6.2 11.2 11.2 6.2 12 0z'/></svg>")}
+.panel{position:relative;margin-top:-3rem;border-radius:3rem 3rem 0 0;padding:clamp(5rem,9vw,7rem) 0}
+.panel::before,.foot::before{content:"";position:absolute;top:-.85rem;left:50%;width:1.7rem;height:1.7rem;margin-left:-.85rem;background:var(--sand);-webkit-mask:var(--sk) center/contain no-repeat;mask:var(--sk) center/contain no-repeat;animation:tw 6s ease-in-out infinite}
+.about.grad{background:linear-gradient(180deg,#3D2858,#6B4489)}
+.pw{background:linear-gradient(180deg,#5C3C7E,#8A5CAA)}
+.ps{background:linear-gradient(180deg,#3D2858,#5C3C7E)}
+.pe{background:linear-gradient(180deg,#4B3266,#7A4E9A)}
+
+.rv{opacity:0;transition:opacity .8s ease var(--dl,0s),transform .9s cubic-bezier(.2,.8,.2,1) var(--dl,0s)}
+.rv.l{transform:translateX(-4rem)}
+.rv.r{transform:translateX(4rem)}
+.rv.p{transform:scale(.8) translateY(1.5rem);transition:opacity .7s ease var(--dl,0s),transform .8s cubic-bezier(.3,1.5,.5,1) var(--dl,0s)}
+.rv.on{opacity:1;transform:none}
+
+.fig{margin:2rem 0}
+.fig img{width:100%;height:auto;display:block}
+.fig.s img{border:3px solid var(--sand);border-radius:1rem}
+.fig figcaption{margin-top:.6rem;font-size:.92rem}
+.fig figcaption b{color:var(--sand);margin-right:.4rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.two .fig{margin:1rem 0}
+.item{margin-top:3.5rem}
+.item h3,.rd{font-size:clamp(1.5rem,3.5vw,2.1rem);color:var(--cream);margin:.8rem 0 .5rem}
+.rd{margin-top:3rem}
+.score{display:inline-grid;place-items:center;width:5.2rem;height:5.2rem;border-radius:50%;background:var(--sand);color:#2A1840;font-family:var(--disp);font-size:1.5rem;line-height:1;text-align:center}
+.score small{display:block;font-family:var(--body);font-size:.7rem;margin-top:.15rem}
+.steps{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr))}
+.steps li{border:2px solid var(--sand);border-radius:1.25rem;padding:1.1rem;font-size:.95rem;line-height:1.5}
+.steps b{display:block;font-family:var(--disp);font-weight:400;font-size:1.25rem;color:var(--sand);margin-bottom:.4rem;line-height:1.1}
+.cards2{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.25rem;margin:2rem 0}
+.c2{background:#ffffff1c;border-radius:1.5rem;padding:1.5rem}
+.c2 h3{font-size:1.4rem;color:var(--cream);margin:.3rem 0 .6rem}
+.c2 small{color:var(--sand);font-weight:600;font-size:.85rem}
+.c2 p{font-size:.97rem}
+.sub{color:var(--sand);font-weight:600;margin:2.5rem 0 .5rem}
+.tw{overflow-x:auto}
+.res{width:100%;border-collapse:collapse;font-size:.95rem;min-width:34rem}
+.res th,.res td{text-align:left;padding:.75rem .7rem;border-bottom:1px solid #ffffff55;vertical-align:top}
+.res th{color:var(--sand);font-weight:600}
+@media (max-width:48rem){.two{grid-template-columns:1fr}}
+
+.vid video{width:100%;height:auto;display:block;border:3px solid var(--sand);border-radius:1.5rem;background:#000}
+
+.swatches{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.5rem 0}
+.swatches span{padding:.55rem 1rem;border-radius:999px;border:2px solid var(--sand);font-size:.85rem;font-weight:600;color:#F6F0F8}
+
+.foot{background:var(--nav);padding:4rem 0 3rem}
+.foot h2{font-size:clamp(2.2rem,6vw,3.6rem);color:var(--sand);margin-bottom:1rem}
+.foot p{margin:0;max-width:28rem}
+.foot a{font-weight:500}
+.foot{position:relative;margin-top:-3rem;border-radius:3rem 3rem 0 0;padding-top:6rem}
+
+@media (max-width:48rem){
+  .about .wrap{grid-template-columns:1fr}
+  .nav .wrap{gap:.5rem}
+  .nav ul{gap:.9rem;font-size:.85rem}
+  .tagline{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+@media (max-width:48rem){.hero .star:nth-of-type(3){display:none}.hero .star:nth-of-type(2){top:38%!important}}
+@media (max-width:30rem){.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;row-gap:.5rem}.mono{position:static;transform:none;grid-column:2;grid-row:1;justify-self:center;font-size:1.7rem}.li{grid-column:3;grid-row:1}.nav ul{grid-column:1/-1;grid-row:2;justify-content:center;gap:1.4rem;font-size:.9rem}}
+.cgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start}
+.cform{display:grid;gap:1.1rem}
+.field label{display:block;font-weight:500;font-size:.95rem;margin-bottom:.35rem;color:var(--sand)}
+.field input,.field select,.field textarea{width:100%;font:inherit;color:#fff;background:#ffffff12;border:2px solid var(--sand);border-radius:1rem;padding:.7rem 1rem}
+.field textarea{resize:vertical;min-height:7rem}
+.field select option{color:#141414}
+.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid var(--lilac);outline-offset:2px}
+.field .bad{border-color:#ff9aa8}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.sendbtn{justify-self:start;background:var(--sand);color:#2A1840;border-color:var(--sand);font:inherit;font-weight:600;cursor:pointer;padding:.7rem 1.8rem}
+.sendbtn[disabled]{opacity:.6;cursor:default}
+.cstatus{min-height:1.5rem;max-width:none!important;color:var(--sand)}
+@media (max-width:48rem){.cgrid{grid-template-columns:1fr;gap:2rem}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sp" viewBox="0 0 24 24"><path d="M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12C11.2 17.8 6.2 12.8 0 12 6.2 11.2 11.2 6.2 12 0z"/></symbol>
+</svg>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <ul>
+      <li><a class="pill" href="#contact">Contact</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="mono" href="#top" aria-label="Home">AC</a>
+    <a class="li" href="https://www.linkedin.com/in/arielle-cowham" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<div class="page" id="home">
+  <header class="hero grad" id="top">
+    <div class="wrap">
+      <h1 class="echo"><span>Portfolio</span><span class="o" aria-hidden="true">Portfolio</span><span class="o" aria-hidden="true">Portfolio</span></h1>
+      <p class="tagline">I love approaching design with curiosity, and creating with purpose.</p>
+    </div>
+    <svg class="sp star" style="left:79%;top:26%;font-size:clamp(2.5rem,7.5vw,7rem)" aria-hidden="true"><use href="#sp"/></svg>
+    <svg class="sp star" style="left:88%;top:46%;font-size:clamp(1.6rem,4vw,4rem);--d:-2s" aria-hidden="true"><use href="#sp"/></svg>
+    <svg class="sp star" style="left:73%;top:56%;font-size:clamp(1.2rem,3vw,3rem);--d:-4s" aria-hidden="true"><use href="#sp"/></svg>
+  </header>
+
+  <section class="about panel grad" id="about">
+    <div class="wrap">
+      <div>
+        <h2>Hi, I’m Arielle!</h2>
+        <p>I’m a UI/UX designer with a curiosity for how people think, feel, and interact with the world around them.</p>
+        <p>I’m drawn to the little details that make something meaningful. Above all, I want to create experiences that make a difference in people’s lives, even in the smallest ways.</p>
+      </div>
+      <div class="arch top"><div class="in" style="padding:0"><img src="images/arielle.jpg" alt="Arielle Cowham smiling, wearing a black leather jacket"></div></div>
+    </div>
+  </section>
+
+  <div class="rest">
+      <section id="work" class="panel pw"><div class="wrap">
+        <h2 class="h">Work</h2>
+        <div class="cards">
+          <a class="card" href="#/melbourne-playgrounds">
+            <div class="arch"><div class="in" style="padding:0"><img src="images/cover-melbourne.jpg" alt="Redesigned Melbourne Playgrounds homepage"></div></div>
+            <h3>Melbourne Playgrounds</h3>
+            <p>A usability redesign of the Melbourne Playgrounds website</p>
+          </a>
+          <a class="card" href="#/rooted-faith">
+            <div class="arch"><div class="in" style="padding:0"><img src="images/cover-rooted-faith.jpg" alt="Rooted Faith home screen"></div></div>
+            <h3>Rooted Faith</h3>
+            <p>A moderated discussion and learning platform for environmentalists</p>
+          </a>
+          <a class="card" href="#/sound-design">
+            <div class="arch"><div class="in" style="padding:0"><img src="media/earcons-poster.jpg" alt="Title card of the Cook It sound design demonstration video" style="object-fit:contain"></div></div>
+            <h3>Sound design</h3>
+            <p>Earcons for Cook It, a social recipe app</p>
+          </a>
+        </div>
+      </div></section>
+
+      <section id="skills" class="panel ps"><div class="wrap">
+        <h2 class="h">Skills and tools</h2>
+        <div class="cols">
+          <div><h3>Tools</h3><div class="chips"><span class="chip">Figma</span><span class="chip">REAPER</span><span class="chip">Adobe Illustrator</span><span class="chip">Adobe Premiere</span><span class="chip">Visual Studio Code</span></div></div>
+          <div><h3>Skills</h3><div class="chips"><span class="chip">Visual Design</span><span class="chip">UX Research</span><span class="chip">UX Thinking</span><span class="chip">Usability Testing</span><span class="chip">Prototyping</span><span class="chip">User Research</span><span class="chip">Design Systems</span><span class="chip">Wireframing</span><span class="chip">Graphic Design</span><span class="chip">Sound Design</span></div></div>
+        </div>
+      </div></section>
+
+      <section id="education" class="panel pe"><div class="wrap">
+        <h2 class="h">Education</h2>
+        <ul class="tl">
+          <li><svg class="sp" aria-hidden="true"><use href="#sp"/></svg><div><b>Jul 2024 – Jun 2027</b>Bachelor in Digital Design<br>RMIT University</div></li>
+        </ul>
+      </div></section>
+  </div>
+</div>
+
+<div class="page case grad" id="melbourne-playgrounds" hidden>
+  <div class="wrap">
+    <a class="back" href="#work"><svg class="sp" aria-hidden="true"><use href="#sp"/></svg>Back to work</a>
+    <h1>Melbourne Playgrounds</h1>
+    <p class="lede">A redesign of the Melbourne Playgrounds website</p>
+    <dl class="meta">
+      <div><dt>Role</dt><dd>Sole UX researcher &amp; UX/UI designer</dd></div>
+      <div><dt>Responsibilities</dt><dd>Heuristic evaluation, product redesign, prototyping, usability testing, data analysis</dd></div>
+      <div><dt>Timeline</dt><dd>12 weeks</dd></div>
+    </dl>
+    <figure class="fig"><img src="images/after-home.webp" alt="The redesigned Melbourne Playgrounds homepage on a laptop"></figure>
+
+    <div class="story">
+      <h2>Project intro</h2>
+      <p>Melbourne Playgrounds is a public resource for families to find playgrounds and activities across Melbourne and Victoria. Despite it being a valuable platform, the site suffered severe usability problems that made basic tasks slow and hard to complete.</p>
+      <p style="margin-top:1rem">This redesign project will involve heuristic evaluation of the original site, moderated and unmoderated usability tests, a UX/UI redesign in Figma, and A/B comparison testing to measure improvements.</p>
+      <figure class="fig"><img src="images/before-home.webp" alt="The original Melbourne Playgrounds website on a laptop"><figcaption>The original website</figcaption></figure>
+
+      <h2>The design process</h2>
+      <ol class="steps">
+        <li><b>01 Heuristic evaluation</b>Apply UX principles to identify issues</li>
+        <li><b>02 Usability testing</b>Design and conduct moderated and unmoderated tests</li>
+        <li><b>03 Analyse &amp; ideate</b>Analyse data and redesign by issue severity</li>
+        <li><b>04 Redesign</b>Figma mockups and prototyping</li>
+        <li><b>05 A/B comparison</b>Repeat same tests on redesigns, analyse and compare results</li>
+      </ol>
+
+      <h2>01 Identifying the problems</h2>
+      <div class="item">
+        <span class="score">5/5<small>Difficulty</small></span>
+        <h3>Standards &amp; Conventions</h3>
+        <p>The images on both pages give the impression that they are clickable or interactive, but they are not. In contrast, the search bar appears non-interactive, as it resembles an image, despite being an active input field. This violates user expectations of interaction behaviour.</p>
+        <div class="two"><figure class="fig s"><img src="images/heur-standards-1.jpg" alt="Activity Maps page with the non-interactive map image circled"></figure><figure class="fig s"><img src="images/heur-standards-2.jpg" alt="Water Fun page with the image cards and search bar circled"></figure></div>
+      </div>
+      <div class="item">
+        <span class="score">3.5/5<small>Difficulty</small></span>
+        <h3>Visual Hierarchy</h3>
+        <p>The articles section dominates the homepage, concealing the website’s primary purpose of finding playgrounds and activities.</p>
+        <figure class="fig s"><img src="images/heur-hierarchy.jpg" alt="Homepage with the New Activities articles section circled"></figure>
+      </div>
+      <div class="item">
+        <span class="score">4/5<small>Difficulty</small></span>
+        <h3>Instructions Must Die</h3>
+        <p>Instructions were displayed throughout the entire website, and was required for many tasks. Features should be intuitive and easy to follow, minimising the need for instructions.</p>
+        <figure class="fig s"><img src="images/heur-instructions.jpg" alt="Activity Maps page with the instructions text circled"></figure>
+      </div>
+      <div class="item">
+        <span class="score">4/5<small>Difficulty</small></span>
+        <h3>Hick’s Law</h3>
+        <p>Throughout the website, users were required to select regions (e.g. South East, Central, etc.) to access relevant lists or maps. For users who are unfamiliar with which suburbs belong to each region, this process may be confusing and require significant trial and error before finding the desired information.</p>
+        <figure class="fig s"><img src="images/heur-hicks.jpg" alt="Activity Maps page with the list of regions circled"></figure>
+      </div>
+
+      <h2>02 The tests</h2>
+      <p>A combination of moderated and unmoderated usability tests with both qualitative and quantitative measures was used to validate known usability issues and gain deeper insights into user behaviours, challenges, and opportunities for improvement.</p>
+      <div class="cards2">
+        <div class="c2"><h3>Think Aloud</h3><small>3 participants</small><p>Participants spoke of their thought process aloud whilst completing 3 tasks on the site. Each task was timed. This revealed where they hesitated, what confused them, and how they recovered from errors.</p></div>
+        <div class="c2"><h3>SEQ Test</h3><small>3 participants</small><p>After each think aloud task, users rated its difficulty on a 7-point rating scale: 1 is very difficult, 7 is very easy. This captures perceived difficulty immediately after each task.</p></div>
+        <div class="c2"><h3>Initial Impressions</h3><small>3 participants</small><p>Users were shown the “Water Fun” page and asked what they expected certain elements to do and where to find particular information. This tested standards and conventions and visual hierarchy.</p></div>
+        <div class="c2"><h3>SUS Score</h3><small>3 participants</small><p>An industry standard usability scale completed after all tasks. The higher the score, the better the usability. Captures the users’ overall perception of usability and acts as a benchmark.</p></div>
+        <div class="c2"><h3>First Click Test</h3><small>10 participants</small><p>Users saw the homepage and were asked where they would click to find a playground near them. Time and accuracy were recorded. First click showcases task success and efficiency. This tests visual hierarchy.</p></div>
+        <div class="c2"><h3>5 Second Test</h3><small>10 participants</small><p>The homepage was shown for 5 seconds. Users then had to answer what the site was about, what stood out to them, and where the search bar was. This tested whether the page communicates its purpose and features quickly enough.</p></div>
+      </div>
+
+      <h2>03 What was revealed</h2>
+      <div class="cards2">
+        <div class="c2"><small>5 Second Test</small><h3>9/10 couldn’t identify the search bar</h3><p>Only one participant confidently knew where the search bar was. It’s unconventional styling meant users didn’t recognise it as an interactive input.</p></div>
+        <div class="c2"><small>5 Second Test</small><h3>4/10 couldn’t identify the site’s purpose</h3><p>These participants gave incorrect answers. This indicated that there was an issue with visual hierarchy.</p></div>
+        <div class="c2"><small>Think Aloud &amp; SEQ</small><h3>The map task forced trial and error from everyone</h3><p>The task involving the map feature scored longest time on task and worst SEQ score: 2/7. One participant didn’t complete it.</p></div>
+        <div class="c2"><small>Think Aloud &amp; Walkthrough</small><h3>All 3 users expected image cards to be interactive</h3><p>Participants believed that the image cards should have been interactive and contain more information when clicked on.</p></div>
+        <div class="c2"><small>Think Aloud &amp; SEQ</small><h3>Fast Find was hard to discover without prompting</h3><p>Participants struggled to find the Fast Find feature, despite it being the most functional search feature. It lacked visual prominence.</p></div>
+        <div class="c2"><small>SUS Score</small><h3>28.3 average SUS Score</h3><p>The industry average score is a 68. This affirms that the usability of this website is very poor.</p></div>
+      </div>
+      <p class="sub">The original results</p>
+      <div class="tw"><table class="res">
+        <tr><th>Test</th><th>Task</th><th>Result</th></tr>
+        <tr><td>SUS score</td><td>Overall</td><td>28.3</td></tr>
+        <tr><td>Think aloud</td><td>Task 1: Find a highly rated playground</td><td>3:46, SEQ 3.33/7 (somewhat difficult)</td></tr>
+        <tr><td>Think aloud</td><td>Task 2: Find Debney’s Park Playground via map</td><td>5:05, SEQ 2/7 (difficult)</td></tr>
+        <tr><td>Think aloud</td><td>Task 3: Find a park within 5km of Box Hill</td><td>2:53, SEQ 3/7 (somewhat difficult)</td></tr>
+        <tr><td>First click</td><td>You want to find a playground near you. Where would you click first?</td><td>Correct: 8/10, slowest time: 86.3s, average: 23.7s</td></tr>
+        <tr><td>5 second</td><td>What is this site about?</td><td>4/10 couldn’t identify correctly</td></tr>
+        <tr><td>5 second</td><td>Was there a search bar? Where?</td><td>9/10 couldn’t identify correctly</td></tr>
+      </table></div>
+
+      <h2>03 Redesign idea</h2>
+      <p>To start the redesign, I identified key usability issues and opportunities for potential solutions. One of the first areas focused on was the navigation, where it was reorganised by related categories to create a clearer and more intuitive structure.</p>
+      <div class="two"><figure class="fig s"><img src="images/sketch-navigation.jpg" alt="Hand-drawn sketch reorganising the navigation into related categories"></figure><figure class="fig s"><img src="images/sketch-plan.jpg" alt="Hand-written plan listing what to change on each page"></figure></div>
+
+      <h2>04 The redesign</h2>
+      <h3 class="rd">The homepage</h3>
+      <div class="two">
+        <figure class="fig"><img src="images/before-home.webp" alt="Original homepage"><figcaption><b>Before</b> Blog posts dominated the screen. Uncertain of site’s purpose</figcaption></figure>
+        <figure class="fig"><img src="images/after-home.webp" alt="Redesigned homepage"><figcaption><b>After</b> Standard hero section. Two clear CTA buttons. Articles moved to a different section</figcaption></figure>
+      </div>
+      <h3 class="rd">The navigation bar</h3>
+      <div class="two">
+        <figure class="fig"><img src="images/before-home.webp" alt="Original navigation bar"><figcaption><b>Before</b> Odd navigation sections. Unconventional search bar. Lacks visual prominence</figcaption></figure>
+        <figure class="fig"><img src="images/after-home.webp" alt="Redesigned navigation bar"><figcaption><b>After</b> Dedicated sections for Playgrounds, Activities, Articles, etc. Clearer search button</figcaption></figure>
+      </div>
+      <h3 class="rd">The Water Fun page</h3>
+      <div class="two">
+        <figure class="fig"><img src="images/before-water.webp" alt="Original Water Fun page"><figcaption><b>Before</b> Images acted like interactive cards. Walls of text. No filtering. Home button breadcrumb causes confusion</figcaption></figure>
+        <figure class="fig"><img src="images/after-water-hero.webp" alt="Redesigned Water Fun page"><figcaption><b>After</b> Changed breadcrumb name to “Activities”. Removed walls of text and card-like images.</figcaption></figure>
+      </div>
+      <div class="two">
+        <figure class="fig"><img src="images/before-water.webp" alt="Original Water Fun page"><figcaption><b>Before</b> Images acted like interactive cards. Walls of text. No filtering. Home button breadcrumb causes confusion</figcaption></figure>
+        <figure class="fig"><img src="images/after-water-list.webp" alt="Redesigned Water Fun page list"><figcaption><b>After</b> Alphabetical drop down lists. Filtering system. Choose between regional Victoria or Melbourne</figcaption></figure>
+      </div>
+      <h3 class="rd">The Playgrounds page</h3>
+      <div class="two">
+        <figure class="fig"><img src="images/before-playgrounds.webp" alt="Original Playgrounds page"><figcaption><b>Before</b> Images acted like interactive cards. Walls of text. No filtering. Home button breadcrumb causes confusion</figcaption></figure>
+        <figure class="fig"><img src="images/after-playgrounds-hero.webp" alt="Redesigned Playgrounds page"><figcaption><b>After</b> Removed breadcrumb. Removed walls of text and card-like images.</figcaption></figure>
+      </div>
+      <div class="two">
+        <figure class="fig"><img src="images/before-playgrounds.webp" alt="Original Playgrounds page"><figcaption><b>Before</b> Images acted like interactive cards. Walls of text. No filtering. Home button breadcrumb causes confusion</figcaption></figure>
+        <figure class="fig"><img src="images/after-playgrounds-list.webp" alt="Redesigned Playgrounds list"><figcaption><b>After</b> Immediate top playgrounds list. Filtering system. Images and star ratings included</figcaption></figure>
+      </div>
+      <h3 class="rd">The Maps page</h3>
+      <div class="two">
+        <figure class="fig"><img src="images/before-maps.webp" alt="Original Maps page"><figcaption><b>Before</b> Non-interactive map image. Map list by regional area. Instructions.</figcaption></figure>
+        <figure class="fig"><img src="images/after-maps.webp" alt="Redesigned Maps page"><figcaption><b>After</b> Single interactive map. Filtering options. No instructions. No separated list by region</figcaption></figure>
+      </div>
+
+      <h2>05 A/B comparison</h2>
+      <p>The same tests used for the original site were repeated on the redesign via Figma. This allowed a direct measurement of improvements across all tasks and metrics.</p>
+      <p class="sub">Think aloud</p>
+      <div class="tw"><table class="res">
+        <tr><th>Task</th><th>Original</th><th>Redesign</th><th>Improvement</th></tr>
+        <tr><td>Task 1: Find a highly rated playground</td><td>3:46, SEQ 3.33/7</td><td>0:22, SEQ 6.33/7</td><td>10.1x faster, +90% ease</td></tr>
+        <tr><td>Task 2: Find Debney’s Park Playground via map</td><td>5:05, SEQ 2/7</td><td>0:20, SEQ 5.67/7</td><td>15.5x faster, +183% ease</td></tr>
+        <tr><td>Task 3: Find a park within 5km of Box Hill</td><td>2:53, SEQ 3/7</td><td>0:43, SEQ 5.33/7</td><td>4.1x faster, +78% ease</td></tr>
+      </table></div>
+      <p class="sub">SUS, first click and 5 second tests</p>
+      <div class="tw"><table class="res">
+        <tr><th>Measure</th><th>Original</th><th>Redesign</th><th>Improvement</th></tr>
+        <tr><td>SUS score</td><td>28.3</td><td>85.8</td><td>+203%</td></tr>
+        <tr><td>First click: average time</td><td>23.7s</td><td>9.3s</td><td>2.55x</td></tr>
+        <tr><td>First click: fastest</td><td>7.3s</td><td>2.4s</td><td>3.04x</td></tr>
+        <tr><td>First click: correct</td><td>8/10</td><td>10/10</td><td>+25%</td></tr>
+        <tr><td>5 second: What is this website about?</td><td>6/10</td><td>10/10</td><td>+67%</td></tr>
+        <tr><td>5 second: Is there a search bar? Where?</td><td>1/10</td><td>6/10</td><td>+500%</td></tr>
+      </table></div>
+      <div class="cards2">
+        <div class="c2"><h3>What worked</h3><p>Task completion was drastically faster and more accurate across all 3 tasks. The accuracy of the first click test went from 8/10 to 10/10. SUS scores improved from 28.3 to 85.8. This highlights that the redesign successfully addressed the UX issues identified in the original site.</p></div>
+        <div class="c2"><h3>Key finding</h3><p>Results were not ordered by rating. Not all pages were redesigned or added into the prototype making some tasks take longer.</p></div>
+        <div class="c2"><h3>Future design response</h3><p>Results should be ordered by rating. Test with higher-fidelity prototype.</p></div>
+      </div>
+
+      <h2>Reflections</h2>
+      <p>A/B testing and comparison confirmed that the redesign massively improved usability across all tasks and metrics. The SUS Score increased by 203%, and task completion times were drastically faster.</p>
+      <div class="cards2">
+        <div class="c2"><h3>01</h3><p>Testing on a Figma prototype rather than a website could have impacted accuracy of results. Some tasks were faster because fewer pages existed, others may have taken longer because certain pages or interactions weren’t built. Future testing could use more pages and higher fidelity prototypes.</p></div>
+        <div class="c2"><h3>02</h3><p>The Water Fun page used collapsible alphabetical lists while the Playgrounds page used direct filtering. This is a design inconsistency between similar pages. A more united list pattern should be applied across all page categories.</p></div>
+        <div class="c2"><h3>03</h3><p>The redesign increased visual prominence for the four distinct search methods (maps, Fast Find, search bar, and page level filters), each one serves a different purpose. This wasn’t always clear to users. There could be clearer visual differentiation through icons or labelling, or a common search method should be prioritised.</p></div>
+      </div>
+
+      <h2>The final Figma</h2>
+      <p><a class="btn" href="https://www.figma.com/design/xGB5krlE1rfwwqZwoL3kEV/UX-Studio?node-id=240-2&amp;t=Kzkc6cZHAsrWGPK8-1" target="_blank" rel="noopener">Figma mockup</a> <a class="btn" href="https://www.figma.com/proto/xGB5krlE1rfwwqZwoL3kEV/UX-Studio?node-id=240-4&amp;p=f&amp;t=TXVXTJ6ZUnOYBRzo-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=240%3A2&amp;starting-point-node-id=240%3A4" target="_blank" rel="noopener">Figma prototype</a></p>
+    </div>
+    <p class="next"><a class="btn" href="#/rooted-faith">Next: Rooted Faith</a></p>
+  </div>
+</div>
+
+<div class="page case grad" id="rooted-faith" hidden>
+  <div class="wrap">
+    <a class="back" href="#work"><svg class="sp" aria-hidden="true"><use href="#sp"/></svg>Back to work</a>
+    <h1>Rooted Faith</h1>
+    <p class="lede">Bridging faith, environmental science, and community into one platform</p>
+    <dl class="meta">
+      <div><dt>Role</dt><dd>Sole UX researcher &amp; UX/UI designer</dd></div>
+      <div><dt>Responsibilities</dt><dd>Primary and secondary research, product design, prototyping, user testing</dd></div>
+      <div><dt>Timeline</dt><dd>12 weeks</dd></div>
+    </dl>
+    <figure class="fig"><img src="images/rf-landing.jpg" alt="The Rooted Faith landing page"></figure>
+
+    <div class="story">
+      <h2>The problems</h2>
+      <ol class="steps">
+        <li><b>01</b>Many Christian environmentalists struggle to find environmental information that is both scientifically credible and plainly aligned with their faith. This forces them to interpret and merge these perspectives independently</li>
+        <li><b>02</b>Christian environmentalists lack trusted spaces to engage in environmental discussions that has a balance of credible information, respectful communication, and faith-based content</li>
+        <li><b>03</b>Many churches don't actively integrate environmental stewardship into discussions, sermons, or community practices. This leaves Christian environmentalists feeling unsupported in connecting their faith to environmentalism</li>
+      </ol>
+
+      <h2>Project intro</h2>
+      <p>Rooted Faith is a moderated discussion and learning platform for Christian environmentalists that incorporates scientifically credible information, a Christian lens, and respectful engagement from the community.</p>
+      <p style="margin-top:1rem">This platform includes a discussion forum for environmental issues, educational resources, and church and community involvement while distinguishing verified experts and researchers from general users to encourage credibility.</p>
+      <div class="cards2">
+        <div class="c2"><h3>Scientifically credible</h3></div>
+        <div class="c2"><h3>Respectful discussions</h3></div>
+        <div class="c2"><h3>Church &amp; group engagement</h3></div>
+        <div class="c2"><h3>Christian perspectives</h3></div>
+      </div>
+
+      <h2>The design process</h2>
+      <ol class="steps">
+        <li><b>01 Discovery</b>Empathy &amp; context mapping</li>
+        <li><b>02 Research</b>Secondary research, interviews</li>
+        <li><b>03 Define</b>Analysis, user personas, problem statements</li>
+        <li><b>04 Ideate &amp; design</b>Crazy 8s, mockups, prototype</li>
+        <li><b>05 Test</b>Conduct test, findings and reflections</li>
+      </ol>
+
+      <h2>01 Understanding the community</h2>
+      <p>Before any primary research was done, empathy mapping and context mapping were used to create assumptions and identify possible gaps and limitations in understanding. Secondary research showcased denominational trends when it came to views on human participation in climate change. The Anglican, Uniting, and Catholics churches had higher levels of belief that humans caused climate change.</p>
+      <p class="sub">Empathy map</p>
+      <div class="cards2">
+        <div class="c2"><h3>Think</h3><p>How do we spread our ideas/ teachings? Why don't more people care?</p></div>
+        <div class="c2"><h3>Hear</h3><p>Sermons around creation care. Environmental actions happening in their area or around the world. Opinions for and against environmental care</p></div>
+        <div class="c2"><h3>Feel</h3><p>Frustration about the current state of our planet. Hope that things will change. Passionate about protecting the planet</p></div>
+        <div class="c2"><h3>Say</h3><p>"Caring for God's creation is important". "Christians need to take climate change seriously." "God giving us stewardship over the Earth does not mean we are more important or that we can exploit it."</p></div>
+        <div class="c2"><h3>See</h3><p>People from other faith-based environmental organisations. News surrounding the climate. Social media with climate activism content. Evidence of environmental damage</p></div>
+        <div class="c2"><h3>Do</h3><p>Advocating for the environment. Donating. Teaching environmental principles (possibly using Scripture as a basis). Protests. Cleanups</p></div>
+      </div>
+      <p class="sub">Context map</p>
+      <div class="cards2">
+        <div class="c2"><h3>Tasks</h3><p>Participation with environmental organisations. Donating to environmental organisations or research. Teaching or learning about environmentalism via podcasts, videos, church, etc. Plan and lead youth ministry sessions</p></div>
+        <div class="c2"><h3>Relationships</h3><p>Youth group &lt;&gt; as a mentor. Church leaders &lt;&gt; may advocate ideas or solutions. Activist networks &lt;&gt; as a collaborator. The church &lt;&gt; can be shaped by the views and attitudes of society. User interacts with social media &lt;&gt; algorithm may cause echo chamber</p></div>
+        <div class="c2"><h3>Actors</h3><p>Church leaders. Congregation members. Organisations like A Rocha Trust. Environmental researchers. Youth group members</p></div>
+        <div class="c2"><h3>Timeframes</h3><p>A simple conversation in the comments or over group chats can take a couple of minutes. Organising events would take weeks, possibly months</p></div>
+        <div class="c2"><h3>Artefacts</h3><p>Social media and podcasts. Bible. Theology books that focus on stewardship. Climate reports. Sustainable products</p></div>
+        <div class="c2"><h3>Locations</h3><p>Church (where services and youth group happens). Online spaces (where information can be consumed or opinions can be shared). Public (protests, clean-ups, etc.)</p></div>
+      </div>
+
+      <h2>02 The interviews</h2>
+      <p>To understand both the target audience and those with opposing views, interviews were conducted with Christian environmentalists as well as a Christian participant who did not identify as an environmentalist. This provided insight into potential barriers, and opportunities for broader application.</p>
+      <div class="tw"><table class="res">
+        <tr><th>Participants</th><th>Detail</th></tr>
+        <tr><td>4</td><td>Christian environmentalists</td></tr>
+        <tr><td>1</td><td>Christian non-environmentalist</td></tr>
+        <tr><td>18–70</td><td>Age range</td></tr>
+        <tr><td>2</td><td>Anglicans</td></tr>
+        <tr><td>3</td><td>Uniting Church</td></tr>
+      </table></div>
+      <div class="cards2">
+        <div class="c2"><h3>Trust &amp; credibility</h3><p>Participants prioritised credible, scientific resources. They were skeptical of content derived from opinions and wanted verified expertise.</p></div>
+        <div class="c2"><h3>The faith lens</h3><p>All four environmentalists saw creation care as an obligation shaped by faith. Christianity provided the ethical framework.</p></div>
+        <div class="c2"><h3>Quiet advocacy</h3><p>Most participants preferred personal advocacy. This looked like lifestyle changes, productive conversations, and modelling behaviour.</p></div>
+        <div class="c2"><h3>The absence of church</h3><p>Church engagement with environmental stewardship was inconsistent among the participants. Only one said it was core to their church’s identity.</p></div>
+      </div>
+
+      <h2>02 Competitor analysis</h2>
+      <p>There lacked a direct competitor as the target audience was highly niche. The closest alternative was Reddit, but the platform lacked constructive conversations, often hosting a hostile environment. Additionally, there were no spaces tailored to Christian environmentalists.</p>
+
+      <h2>03 User persona</h2>
+      <p>After analysing the responses of the participants, an average profile was derived from the findings. The user persona was then developed to represent the majority of participants, who demonstrated environmentally conscious behaviours rather than engaging in public advocacy</p>
+      <figure class="fig s"><img src="images/rf-persona.jpg" alt="User persona card for Anna Williams, a 38 year old Christian community worker"></figure>
+
+      <h2>04 Concept development</h2>
+      <p>Rapid ideation was used to brainstorm different concepts before converging into a single platform. A concept map confirmed that Rooted Faith would combine multiple separate user behaviours: researching, interpreting, and discussing, into one platform.</p>
+      <div class="two">
+        <figure class="fig s"><img src="images/rf-crazy8.jpg" alt="Hand-drawn Crazy 8s sketches"><figcaption><b>Crazy 8s</b></figcaption></figure>
+        <figure class="fig s"><img src="images/rf-concept-map.jpg" alt="Rough concept map linking users, articles, discussions and churches"><figcaption><b>Rough concept</b></figcaption></figure>
+      </div>
+
+      <h2>04 The core &amp; pillars</h2>
+      <p>Moderation was not treated as a single feature, but a core value of the platform, shaping every design and community decision.</p>
+      <div class="cards2">
+        <div class="c2"><small>01</small><h3>Moderated discussions</h3><p>This platform encourages users to participate in respectful environmental discussions.</p></div>
+        <div class="c2"><small>02</small><h3>Learn</h3><p>Users can access educational content through article categories like: The Foundations &amp; Deep Dive.</p></div>
+        <div class="c2"><small>03</small><h3>Church &amp; community</h3><p>Churches communities and groups can access Bible study guides and other church-related resources. Users can also discover and engage with churches and communities interested in environmental stewardship.</p></div>
+        <div class="c2"><small>04</small><h3>Verification &amp; fact-checking</h3><p>Verified researchers and experts are visually distinguished from general users. AI and verified members can also help identify misleading environmental claims.</p></div>
+      </div>
+
+      <h2>04 Information architecture &amp; visual design</h2>
+      <figure class="fig s"><img src="images/rf-ia.jpg" alt="Hand-drawn site map of Rooted Faith"></figure>
+      <div class="swatches" aria-label="Palette"><span style="background:#556B2F">#556B2F</span><span style="background:#2D4421">#2D4421</span><span style="background:#F5F5DC;color:#2A1840">#F5F5DC</span><span style="background:#D2A941;color:#2A1840">#D2A941</span><span style="background:#1D180A">#1D180A</span></div>
+      <p>Typefaces: Cormorant Garamond for headings, Carattere for the title, and Source Sans 3 for body text.</p>
+      <p style="margin-top:1rem">The earthy tones represent the natural world, while the gold evokes reverence and the divine. Cormorant Garamond brings a sense of divinity, while Source Sans 3 keeps it readable.</p>
+
+      <h2>04 Key screens</h2>
+      <h3 class="rd">The landing page</h3>
+      <p>Introduces the platform, prompts users to sign up, shows community content</p>
+      <figure class="fig s"><img src="images/rf-landing.jpg" alt="Landing page"></figure>
+      <h3 class="rd">The discussions page</h3>
+      <p>Community posts. Verified users are gold, general users are green</p>
+      <figure class="fig s" style="max-width:30rem"><img src="images/rf-discussion.jpg" alt="Discussions page"></figure>
+      <h3 class="rd">Post view and fact check</h3>
+      <p>Individual post with fact-check response by verified user</p>
+      <figure class="fig s" style="max-width:26rem"><img src="images/rf-post.jpg" alt="Post view with a fact check reply"></figure>
+      <h3 class="rd">The articles page</h3>
+      <p>Foundation and Deep Dive article categories, uploaded by verified users only</p>
+      <figure class="fig s"><img src="images/rf-articles.jpg" alt="Articles page"></figure>
+      <h3 class="rd">The churches &amp; groups page</h3>
+      <p>For users to follow their churches or certain groups. They often upload Bible Study guides and church resources</p>
+      <figure class="fig s"><img src="images/rf-churches.jpg" alt="Churches and groups page"></figure>
+
+      <h2>Feature spotlight: verification system</h2>
+      <p>The core response to the trust and credibility problem, allowing users to distinguish expert voices and facts from general opinions.</p>
+      <div class="cards2">
+        <div class="c2"><h3>Gold badge: verified experts</h3><p>Credentialed researchers and experts will have their real name and qualifications displayed instead of a username.</p></div>
+        <div class="c2"><h3>Green badge: general user</h3><p>General users have usernames displayed. Though their contributions are valued, they are clearly differentiated from verified experts.</p></div>
+        <div class="c2"><h3>Fact check requests</h3><p>Users can flag any post or comments for fact checking via the options menu. Requests are anonymous to reduce social risk and encourage honesty.</p></div>
+        <div class="c2"><h3>AI assistance</h3><p>AI supports the fact-checking process as real people fact checking every post is not possible.</p></div>
+      </div>
+
+      <h2>05 Concept validation</h2>
+      <p>An initial impressions test was conducted on a past interviewee. The response indicated that there was a clear understanding of Rooted Faith’s purpose and target audience from the homepage.</p>
+      <div class="cards2">
+        <div class="c2"><h3>What worked</h3><p>Each page’s function was understood without explanation. Participant felt comfortable navigating, contributing to discussions, and using features.</p></div>
+        <div class="c2"><h3>Key finding</h3><p>The platform did not feel welcoming to users with different viewpoints, this signals a possible echo chamber risk. Verification system caused confusion initially, but once explained, it was received positively and seen as a feature that builds trust</p></div>
+        <div class="c2"><h3>Future design response</h3><p>Onboarding or context should explain verified vs. general users without requiring explanation. Future iterations to explore inclusiveness while preserving the community.</p></div>
+      </div>
+
+      <h2>Reflections</h2>
+      <p>User testing confirmed that Rooted Faith’s purpose can be immediately understood. The needs of the target audience such as: credible science, faith-based lens, and church implementation were directly addressed in the solution. Unfortunately, the platform is biased towards users who already hold environmentalists views, causing a potential echo chamber.</p>
+      <div class="cards2">
+        <div class="c2"><h3>01</h3><p>Designing for a niche community can create belonging, but risks singularity. Future iterations will have to explore ways to include and encourage other viewpoints.</p></div>
+        <div class="c2"><h3>02</h3><p>The platform depends on verified expert participation. Real world implementation will require funding, partnerships, organisational support, or volunteering.</p></div>
+        <div class="c2"><h3>03</h3><p>Niche community platforms will mean smaller user base. For a larger and more diverse user base, the platform would have to host discussion topics on several different issues that impact the Christian community as a whole.</p></div>
+      </div>
+
+      <h2>The final Figma</h2>
+      <p><a class="btn" href="https://www.figma.com/proto/xGB5krlE1rfwwqZwoL3kEV/UX-Studio?node-id=75-226&amp;p=f&amp;t=nMrtCoPzli9TWUkl-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=21%3A2" target="_blank" rel="noopener">Figma mockup</a> <a class="btn" href="https://www.figma.com/proto/xGB5krlE1rfwwqZwoL3kEV/UX-Studio?node-id=268-2691&amp;p=f&amp;t=4Uj3307WhrJDNx68-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=268%3A2082&amp;starting-point-node-id=268%3A2691&amp;show-proto-sidebar=1" target="_blank" rel="noopener">Figma prototype</a></p>
+    </div>
+    <p class="next"><a class="btn" href="#/sound-design">Next: Sound design</a></p>
+  </div>
+</div>
+
+<div class="page case grad" id="sound-design" hidden>
+  <div class="wrap">
+    <a class="back" href="#work"><svg class="sp" aria-hidden="true"><use href="#sp"/></svg>Back to work</a>
+    <h1>Sound design</h1>
+    <p class="lede">Custom earcons for Cook It, a social recipe app</p>
+    <dl class="meta">
+      <div><dt>Project</dt><dd>Earcon sound design</dd></div>
+      <div><dt>Tools</dt><dd>REAPER</dd></div>
+      <div><dt>Year</dt><dd>2026</dd></div>
+    </dl>
+    <figure class="fig vid"><video controls playsinline preload="metadata" poster="media/earcons-poster.jpg"><source src="media/earcons.mp4" type="video/mp4"></video></figure>
+    <div class="story">
+      <h2>The idea</h2><p>Cook It is a social recipe app. I created custom earcons to give intuitive audio feedback for user interactions, with different earcons for different notifications.</p>
+      <h2>How I made it</h2><p>All of the sounds were self-recorded. I recorded, edited and processed the audio in REAPER to create a cohesive sound experience that complemented the app’s functionality.</p>
+    </div>
+    <p class="next"><a class="btn" href="#/melbourne-playgrounds">Next: Melbourne Playgrounds</a></p>
+  </div>
+</div>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="cgrid">
+      <div class="cintro">
+        <h2>Say hello</h2>
+        <p>Want to work together or just chat about design? Send me a message and I’ll get back to you.</p>
+        <p style="margin-top:1rem">Prefer email? <a href="mailto:yinglan.wen@gmail.com">yinglan.wen@gmail.com</a></p>
+      </div>
+      <form class="cform" id="contact-form" novalidate>
+        <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="cf-topic">What is this about?</label>
+          <select id="cf-topic" name="topic">
+            <option>Internship or job</option>
+            <option>Collaboration</option>
+            <option>Freelance project</option>
+            <option>Just saying hello</option>
+          </select></div>
+        <div class="field"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" rows="5" required></textarea></div>
+        <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn sendbtn" type="submit">Send message</button>
+        <p class="cstatus" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  function route(){
+    var h=location.hash, id=h.indexOf('#/')===0?h.slice(2):'home';
+    if(!pages.some(function(p){return p.id===id})) id='home';
+    pages.forEach(function(p){p.hidden=p.id!==id});
+    var t=(id==='home'&&h.length>1&&h.indexOf('#/')!==0)?document.getElementById(h.slice(1)):null;
+    if(t) t.scrollIntoView(); else window.scrollTo({top:0,behavior:'instant'});
+  }
+  window.addEventListener('hashchange',route);
+  route();
+
+  if(!window.IntersectionObserver||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io=new IntersectionObserver(function(es){
+    var k=0;
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.style.setProperty('--dl',Math.min(k++,4)*.12+'s');
+      e.target.classList.add('on');
+      io.unobserve(e.target);
+    });
+  },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+  [['.about .wrap > div:first-child','l'],['.about .arch','r'],['.h','l'],['.card','p'],['.chip','p'],['.tl li','r'],['.back','l'],['.case h1','l'],['.lede','r'],['.meta','p'],['.shot','p'],['.story h2','l'],['.story p','r'],['.next','p'],['.fig','p'],['.c2','p'],['.steps li','p'],['.item','l'],['.tw','p'],['.swatches','p'],['.foot .wrap > *','p']].forEach(function(m){
+    document.querySelectorAll(m[0]).forEach(function(el){el.classList.add('rv',m[1]);io.observe(el)});
+  });
+})();
+(function(){
+  var FORM_ENDPOINT='';
+  var EMAIL='yinglan.wen@gmail.com';
+  var f=document.getElementById('contact-form'); if(!f) return;
+  var st=document.getElementById('cf-status'), btn=f.querySelector('.sendbtn');
+  function bad(el,on){el.classList.toggle('bad',on); el.setAttribute('aria-invalid',on?'true':'false')}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=new FormData(f);
+    if(d.get('website')) return;
+    var n=f.elements.name,m=f.elements.email,g=f.elements.message,ok=true;
+    bad(n,!n.value.trim()); bad(g,!g.value.trim());
+    var em=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m.value.trim()); bad(m,!em);
+    if(!n.value.trim()||!g.value.trim()||!em){st.textContent='Please fill in your name, a valid email and a message.';return;}
+    var topic=f.elements.topic.value;
+    if(FORM_ENDPOINT){
+      btn.disabled=true; st.textContent='Sending…';
+      fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:d})
+        .then(function(r){if(!r.ok) throw 0; f.reset(); st.textContent='Thanks '+n.value+'! Your message is on its way.';})
+        .catch(function(){st.textContent='Something went wrong. Please email me at '+EMAIL+'.';})
+        .then(function(){btn.disabled=false;});
+    }else{
+      var body='Name: '+n.value.trim()+'\nEmail: '+m.value.trim()+'\nAbout: '+topic+'\n\n'+g.value.trim();
+      location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Portfolio message: '+topic)+'&body='+encodeURIComponent(body);
+      st.textContent='Your email app should open with your message ready to send.';
+    }
+  });
+})();
+</script>
+</body>
+</html>
